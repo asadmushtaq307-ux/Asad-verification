@@ -1,0 +1,457 @@
+
+<old_str>
+
+</old_str>
+<new_str>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asad Bhatti - Home Page Verification & Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .info-section p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .signup-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .signup-form h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .phone-input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .country-code {
+            width: 120px;
+            flex-shrink: 0;
+        }
+
+        .phone-number {
+            flex: 1;
+        }
+
+        .verify-btn {
+            background: #28a745;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .verify-btn:hover {
+            background: #218838;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .verification-status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .verification-status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .verification-status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .about-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .about-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .phone-input-group {
+                flex-direction: column;
+            }
+            
+            .country-code {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="hero-title">Asad Bhatti</h1>
+            <p class="hero-subtitle">Home Page Verification & Secure Sign Up Portal</p>
+        </header>
+
+        <div class="about-section">
+            <h2>Welcome to Asad Bhatti's Verification Portal</h2>
+            <p>This is the official home page verification system for <span class="highlight">Asad Bhatti</span>. Our platform provides secure user registration with comprehensive phone number verification supporting international numbers from all countries.</p>
+            <p>We prioritize security and authenticity, ensuring that every user account is properly verified before access is granted. Our system is designed to handle global phone numbers with advanced verification protocols.</p>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="info-section">
+                <h2>About Asad Bhatti</h2>
+                <p><strong>Asad Bhatti</strong> is a professional platform dedicated to providing secure and reliable verification services. Our mission is to create a trusted environment for users worldwide.</p>
+                
+                <h3>Key Features:</h3>
+                <ul class="features-list">
+                    <li>Global phone number verification</li>
+                    <li>Multi-country support</li>
+                    <li>Secure data handling</li>
+                    <li>Real-time verification</li>
+                    <li>24/7 support system</li>
+                    <li>Advanced security protocols</li>
+                </ul>
+
+                <p>Our verification system is built with cutting-edge technology to ensure maximum security and user privacy. We support phone numbers from over 195 countries worldwide.</p>
+            </div>
+
+            <div class="signup-form">
+                <h2>Sign Up for Verification</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number Verification *</label>
+                        <div class="phone-input-group">
+                            <select id="countryCode" name="countryCode" class="country-code" required>
+                                <option value="+1">🇺🇸 +1 (USA)</option>
+                                <option value="+44">🇬🇧 +44 (UK)</option>
+                                <option value="+33">🇫🇷 +33 (France)</option>
+                                <option value="+49">🇩🇪 +49 (Germany)</option>
+                                <option value="+39">🇮🇹 +39 (Italy)</option>
+                                <option value="+34">🇪🇸 +34 (Spain)</option>
+                                <option value="+86">🇨🇳 +86 (China)</option>
+                                <option value="+81">🇯🇵 +81 (Japan)</option>
+                                <option value="+82">🇰🇷 +82 (South Korea)</option>
+                                <option value="+91">🇮🇳 +91 (India)</option>
+                                <option value="+92">🇵🇰 +92 (Pakistan)</option>
+                                <option value="+93">🇦🇫 +93 (Afghanistan)</option>
+                                <option value="+61">🇦🇺 +61 (Australia)</option>
+                                <option value="+55">🇧🇷 +55 (Brazil)</option>
+                                <option value="+7">🇷🇺 +7 (Russia)</option>
+                                <option value="+27">🇿🇦 +27 (South Africa)</option>
+                                <option value="+234">🇳🇬 +234 (Nigeria)</option>
+                                <option value="+20">🇪🇬 +20 (Egypt)</option>
+                                <option value="+971">🇦🇪 +971 (UAE)</option>
+                                <option value="+966">🇸🇦 +966 (Saudi Arabia)</option>
+                                <option value="+90">🇹🇷 +90 (Turkey)</option>
+                                <option value="+52">🇲🇽 +52 (Mexico)</option>
+                                <option value="+54">🇦🇷 +54 (Argentina)</option>
+                                <option value="+65">🇸🇬 +65 (Singapore)</option>
+                                <option value="+60">🇲🇾 +60 (Malaysia)</option>
+                                <option value="+66">🇹🇭 +66 (Thailand)</option>
+                                <option value="+84">🇻🇳 +84 (Vietnam)</option>
+                                <option value="+63">🇵🇭 +63 (Philippines)</option>
+                                <option value="+62">🇮🇩 +62 (Indonesia)</option>
+                                <option value="+880">🇧🇩 +880 (Bangladesh)</option>
+                                <option value="+98">🇮🇷 +98 (Iran)</option>
+                            </select>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" class="phone-number" placeholder="Enter your phone number" required>
+                        </div>
+                        <button type="button" class="verify-btn" onclick="verifyPhone()">Verify Number</button>
+                        <div id="verificationStatus" class="verification-status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password *</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Complete Registration</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Why Choose Asad Bhatti Verification?</h2>
+            <p>Our platform, developed by <strong>Asad Bhatti</strong>, offers unparalleled security and reliability in user verification. We understand the importance of trust in digital platforms and have built our system to exceed industry standards.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                    <h3 style="color: #667eea;">🔐 Security First</h3>
+                    <p>Advanced encryption and security protocols protect your data</p>
+                </div>
+                <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                    <h3 style="color: #667eea;">🌍 Global Reach</h3>
+                    <p>Support for phone numbers from 195+ countries worldwide</p>
+                </div>
+                <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                    <h3 style="color: #667eea;">⚡ Fast Verification</h3>
+                    <p>Instant verification with real-time processing</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isPhoneVerified = false;
+
+        function verifyPhone() {
+            const countryCode = document.getElementById('countryCode').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const statusDiv = document.getElementById('verificationStatus');
+            
+            if (!phoneNumber || phoneNumber.length < 7) {
+                showVerificationStatus('Please enter a valid phone number', 'error');
+                return;
+            }
+
+            // Simulate phone verification process
+            statusDiv.style.display = 'block';
+            statusDiv.className = 'verification-status';
+            statusDiv.innerHTML = 'Verifying phone number... Please wait.';
+            
+            setTimeout(() => {
+                // Simulate successful verification
+                isPhoneVerified = true;
+                showVerificationStatus(`Phone number ${countryCode} ${phoneNumber} verified successfully!`, 'success');
+            }, 2000);
+        }
+
+        function showVerificationStatus(message, type) {
+            const statusDiv = document.getElementById('verificationStatus');
+            statusDiv.style.display = 'block';
+            statusDiv.className = `verification-status ${type}`;
+            statusDiv.innerHTML = message;
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validation
+            if (!firstName || !lastName || !email || !phoneNumber || !password || !confirmPassword) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            if (!isPhoneVerified) {
+                alert('Please verify your phone number first');
+                return;
+            }
+
+            // Simulate successful registration
+            alert(`Welcome ${firstName} ${lastName}! Your account has been created successfully. Your phone number has been verified and you can now access the Asad Bhatti verification portal.`);
+            
+            // Reset form
+            this.reset();
+            isPhoneVerified = false;
+            document.getElementById('verificationStatus').style.display = 'none';
+        });
+
+        // Form validation and user experience enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input[required]');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    if (this.value.trim() === '') {
+                        this.style.borderColor = '#dc3545';
+                    } else {
+                        this.style.borderColor = '#28a745';
+                    }
+                });
+            });
+
+            // Phone number formatting
+            document.getElementById('phoneNumber').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                e.target.value = value;
+            });
+        });
+    </script>
+</body>
+</html>
+</new_str>
